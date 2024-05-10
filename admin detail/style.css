@@ -1,0 +1,25 @@
+
+  body {
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.6;
+	background-color: rgba(248, 248, 248, 0.801);
+  }
+  
+
+  /***************************************************************************************************************************************/
+
+  .card{
+	height: 100px;
+	border-radius: 20px;
+	background-color: #021128d5;
+	color: white;
+	margin: 20px;
+  }
+
+  .detail-main{
+	display: flex;
+  }
+
+
+  

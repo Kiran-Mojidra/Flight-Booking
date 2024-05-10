@@ -1,0 +1,749 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="/Images/earth.svg">
+
+    <title>Flight Schedule</title>
+
+    <style>
+        /* book ticket ===============================================================================================
+	==================================================================================================================*/
+    
+	body{
+        background-color: whitesmoke;
+    }
+	
+
+	/* CSS */
+.book-flight {
+   padding: 20px;
+   height: 350px;
+       width: 90%;
+       background: rgb(255, 255, 255);
+       border-radius: 10px;
+       margin-top: 50px;
+       margin-left: 80px;
+       margin-bottom: 80px;
+       box-shadow: #152B4D;
+}
+
+.select-option input,.select-option2 input{
+   width: 450px;
+   margin-left: 20px;
+}
+
+.main-book-class {
+   display: flex;
+   flex-direction: column;
+}
+/**radio start*/
+.radio-box {
+   display: flex;
+   margin-bottom: 20px;
+}
+
+.form-check-work {
+   margin-right: 20px;
+}
+
+.form-label {
+   margin-left: 5px;
+}
+
+
+/*radio end*/
+.i-box {
+   display: flex;
+   margin-bottom: 20px;
+}
+
+.select-box,.select-box2 {
+   position: relative;
+   flex: 1;
+   margin-right: 20px;
+}
+
+.from-select,.to-select {
+   width: 100%;
+   padding: 10px;
+}
+
+/*.search-content {
+   display: none;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   z-index: 1;
+   width: 100%;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   color: #000;
+
+   border-radius: 7px;
+   margin-top: 1px;
+   padding: 10px;
+}*/
+.search-content,.search-content2{
+   background-color: #fff;
+   position: absolute;
+   color: #000;
+   border-radius: 7px;
+   margin-top: 1px;
+   width: 400px;
+   z-index: 999;
+   padding: 10px;
+   display: none;
+}
+
+.search-content.active,.search-content2.active {
+   display: block;
+}
+
+.se-con,.se-con2 {
+   padding: 10px;
+}
+
+.se-con input,.se-con2 input
+{
+   width: 90%;
+   font-size: 17px;
+   padding: 10px;
+   outline: 0;
+   border: 1px solid #b3b3b3;
+   border-radius: 5px;
+}
+
+.option,.option2 {
+   list-style-type: none;
+   padding: 0;
+   margin-top: 10px;
+   max-width: 450px;
+   max-height: 150px;
+   overflow-y: auto;
+   padding: 0;
+}
+
+.option li,.option2 li {
+   
+   padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+}
+
+.option li:hover,.option2 li:hover{
+   background-color: #94b2df37;
+}
+
+.select-box.active .search-content,.select-box2.active .search-content{
+   display: block;
+}
+
+.select-box.active .select-option::after,.select-box2.active .select-option::after{
+   transform: rotate(-180deg);
+}
+
+.i-box{
+   display: flex;
+
+}
+
+.date-flight {
+   margin-bottom: 20px;
+}
+
+.date,.date2 {
+   width: 100%;
+   padding: 10px;
+}
+
+.select-flight select {
+   padding: 10px;
+}
+
+.flight-btn {
+   text-align: center;
+}
+
+button {
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: #0056b3;
+}
+
+
+	
+	.join-icons image{
+		height: 30px;
+		width: 30px;
+	}
+	
+	.join-icons{
+		font-size: 30px;
+		font-weight: 400;
+	}
+	
+	
+	.makeFlex,.hrtlCenter {
+		align-items: center;
+	}
+	.makeFlex {
+		display: flex;
+	}
+	html[dir='ltr'] .appendRight8 {
+		margin-right: 8px;
+	}
+	.icLocAlt {
+		height: 40px;
+		width: 40px;
+	}
+	img {
+		max-width: 100%;
+		overflow-clip-margin: content-box;
+		overflow: clip;
+	}
+	h1, h2, h3, h4, h5, h6, p, ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	.calc60 {
+		width: -webkit-calc(100% - 60px);
+		width: expression(100% - 60px);
+		width: -moz-calc(100% - 60px);
+		width: -o-calc(100% - 60px);
+		width: calc(100% - 60px);
+	}
+	.appendBottom5 {
+		margin-bottom: 5px;
+	}
+	.font14 {
+		font-size: 14px;
+		line-height: 14px;
+	}
+	.blackText, ._aff .blackText {
+		color: #000000;
+	}
+	.greyText {
+		--borderColor: #9b9b9b;
+	}
+	.appendBottom3 {
+		margin-bottom: 3px;
+	}
+	.font12 {
+		font-size: 12px;
+		line-height: 12px;
+	}
+	.greyText, ._aff .greyText {
+		color: #9b9b9b;
+	}
+	.appendBottom3 {
+		margin-bottom: 3px;
+	}
+	html[dir='ltr'] .pushRight {
+		margin-left: auto;
+	}
+	.latoBold {
+		font-weight: 700;
+	}
+	.font14 {
+		font-size: 14px;
+		line-height: 14px;
+	}
+	.lightGreyText, ._aff .lightGreyText {
+		color: #747474;
+	}
+	
+	.flight-btn{
+		float: right;
+	}
+	
+	.flight-btn button{
+		border-radius: 80px;
+		height: 50px;
+		width: 400px;
+		color: white;
+		text-align: center;
+		background-color: #152B4D;
+		margin-right: 50px;
+	}
+
+	.date-flight,.select-flight{
+		margin: 10px 20px 40px 40px;
+		width: 400px;
+	}
+
+    .time-detail{
+        height: 35px;
+        width: 280px;
+    }
+
+    
+	
+    </style>
+</head>
+
+<?php include 'header.php'; ?><body>
+
+<div style="width:100%;height:55px;background:white;text-align: center;">
+    <h1>Add New Flight</h1>
+</div>
+<section>
+
+
+		<div class="book-flight">
+        <form action="#" method="post">
+            <div class="main-book-class">
+            <div>
+    <select name="airline" id="air" style="width:50%;height:35px;font-size:18px;margin:20px;">
+    <option value="select">Select Airline</option>
+        <?php
+        // Include the file with the database connection
+        include 'connection.php';
+
+        // Query to select data from the 'airline' table
+        $query = "SELECT * FROM airline"; 
+        $result = mysqli_query($conn, $query);
+
+        // Check if there are rows returned from the query
+        if (mysqli_num_rows($result) > 0) {
+            // Loop through each row of the result set
+            while ($row = mysqli_fetch_assoc($result)) {
+                // Output an option element for each airline_name
+                echo '<option value="' . $row['airline_name'] . '">' . $row['airline_name'] . '</option>';
+            }
+        } else {
+            // If no rows returned, display a default option
+            echo '<option value="">No airlines found</option>';
+        }
+
+        // Free the result set
+        mysqli_free_result($result);
+
+        // Close the database connection
+        mysqli_close($conn);
+        ?>
+    </select>
+            </div>
+
+               
+                <div class="i-box">
+                    <div class="select-box">
+                        <div class="select-option">
+                        <label for="Departure"><h2 style="margin:10px 30px;color:#152B4D;">Departure Place</h2></label>
+
+                            <input type="text" name="text-box" class="from-select" id="soValue" placeholder="FROM"
+                                readonly>
+                        </div>
+                        <div class="search-content">
+                            <div class="se-con">
+                                <input type="text" id="optionSearch" placeholder="Search" name="">
+                            </div>
+                            <ul class="option">
+                                <!-- gujarat air-->
+                               
+                                <li>
+                                    <div class="makeFlex hrtlCenter">
+                                        <img class="icLocAlt appendRight8" src="../Icons/ic-flight-onward.png" alt="icon">
+                                        <div class="calc60">
+                                            <p class="font14 appendBottom5 blackText">Kamalpur,Tripura</p>
+                                            <p class="font12 greyText appendBottom3">Kamalpur Airport</p>
+                                        </div>
+                                        <div class="pushRight font14 lightGreyText latoBold">IXQ</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="makeFlex hrtlCenter">
+                                        <img class="icLocAlt appendRight8" src="../Icons/ic-flight-onward.png" alt="icon">
+                                        <div class="calc60">
+                                            <p class="font14 appendBottom5 blackText">Khowai,Tripura</p>
+                                            <p class="font12 greyText appendBottom3">Khowai Airport</p>
+                                        </div>
+                                        <div class="pushRight font14 lightGreyText latoBold">IXN</div>
+                                    </div>
+                                </li>
+
+                        
+                                </ul>
+                        </div>
+                    </div>
+
+                    <div class="select-box2">
+                        <div class="select-option2">
+                        <label for="arrivaal"><h2 style="margin:10px 30px;color:#152B4D;">Arrival Place</h2></label>
+
+                            <input type="text" name="text-box2" class="to-select" id="soValue2" placeholder="To"
+                                readonly>
+                        </div>
+                        <div class="search-content2">
+                            <div class="se-con2">
+                                <input type="text" id="toOptionSearch" placeholder="Search" name="">
+                            </div>
+                            <ul class="option2">
+                               
+                                <li>
+                                    <div class="makeFlex hrtlCenter">
+                                        <img class="icLocAlt appendRight8" src="Icons/ic-flight-onward.png" alt="icon">
+                                        <div class="calc60">
+                                            <p class="font14 appendBottom5 blackText">Kamalpur,Tripura</p>
+                                            <p class="font12 greyText appendBottom3">Kamalpur Airport</p>
+                                        </div>
+                                        <div class="pushRight font14 lightGreyText latoBold">IXQ</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="makeFlex hrtlCenter">
+                                        <img class="icLocAlt appendRight8" src="Icons/ic-flight-onward.png" alt="icon">
+                                        <div class="calc60">
+                                            <p class="font14 appendBottom5 blackText">Khowai,Tripura</p>
+                                            <p class="font12 greyText appendBottom3">Khowai Airport</p>
+                                        </div>
+                                        <div class="pushRight font14 lightGreyText latoBold">IXN</div>
+                                    </div>
+                                </li>
+
+                        
+                                </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="i-box">
+
+                <div>
+                <label for="arrivaal"><h4 style="margin:10px 30px;color:#152B4D;font-size:20px;">Departure Time</h4></label>
+                    <input type="time" placeholder="Enter departure time" class="time-detail" name="departure"/>
+                 </div>
+                 <div>
+                    <label for="arrivaal"><h4 style="margin:10px 20px;color:#152B4D;font-size:20px;">Arrival Time</h4></label>
+                 <input type="time" placeholder="Enter arrival time" class="time-detail" name="arrival" style="margin-left: 20px;"/>
+                </div>
+                    
+                <div>
+                <label for="dp"><h4 style="margin:10px 40px;color:#152B4D;font-size:20px;">Economy Class Prize</h4></label>
+                    <input type="text" placeholder="Enter Prize for Economy class" class="time-detail" name="prize" style="margin-left: 20px;"/>
+                 </div>
+                 <div>
+                    <label for="ap"><h4 style="margin:10px 20px;color:#152B4D;font-size:20px;">Business Class Flight</h4></label>
+                 <input type="text" placeholder="Enter Prize for business class" class="time-detail" name="prize2" style="margin-left: 20px;"/>
+                </div>
+
+                    
+                </div>
+
+
+
+
+            </div>
+
+
+   
+
+        <div class="flight-btn">
+             <button name="add">
+                     ADD Flight Schedule
+             </button>
+        </div>
+</form>
+
+</section>
+<section>
+
+</div>
+
+<?php
+// Database connection
+include '../Connection.php';
+
+// Initialize variables
+$showSuccess = false;
+$showError = "";
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $departure_place = $_POST["text-box"];
+    $arrival_place = $_POST["text-box2"];
+    $dtime = $_POST["departure"];
+    $atime = $_POST["arrival"];
+    $prize = $_POST["prize"];
+    $prize2 = $_POST["prize2"];
+    $airline = $_POST["airline"];
+
+    // Validate departure and arrival places
+    if (empty($departure_place) || empty($arrival_place)) {
+        $showError = "Departure and Arrival places are required.";
+    } else {
+        // Validate departure and arrival times
+        if (empty($dtime) || empty($atime)) {
+            $showError = "Departure and Arrival times are required.";
+        } else {
+            // Validate prizes
+            if (empty($prize) || empty($prize2)) {
+                $showError = "Prizes are required.";
+            } else {
+                // Insert data into the database
+                $sql = "INSERT INTO `schedule` (`departure`, `arrival`, `departure_place`, `arrival_place`, `prize`, `prize2`,`airline`) VALUES ('$dtime', '$atime', '$departure_place', '$arrival_place', '$prize', '$prize2','$airline')";
+                if (mysqli_query($conn, $sql)) {
+                    $showSuccess = true;
+                } else {
+                    $showError = "Data cannot be submitted due to a system error: " . mysqli_error($conn);
+                }
+            }
+        }
+    }
+}
+
+?>
+<?php
+if ($showSuccess) {
+    echo '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> Your flight data has been scheduled successfully.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    ';
+}
+
+if (!empty($showError)) {
+    echo '
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong>' . $showError . '
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    ';
+}
+?>
+
+<script>
+    /** ***************************************************************************************************************************************
+     * ********************************************************* Log alert btn ****************************************************************
+     */
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const closeButton = document.querySelector('.alert .close');
+        const alertBox = document.querySelector('.alert');
+
+        closeButton.addEventListener('click', function() {
+            alertBox.style.display = 'none';
+        });
+    });
+</script>
+
+<style>
+    /* ************************************************************************************************************************************
+                                                    log alert *************************************************************************/
+    .alert {
+        position: relative;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
+
+    .alert-success {
+        color: black;
+        background-color: #1033a64a;
+        border-color: #ffeeba;
+        font-size: 18px;
+    }
+
+    .alert-danger {
+        color: black;
+        background-color: #c90a0a4a;
+        border-color: #ffeeba;
+        font-size: 18px;
+    }
+
+    .alert-success strong,
+    .alert-danger strong {
+        color: black;
+        font-size: 20px;
+    }
+
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.75rem 1.25rem;
+        color: inherit;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+</style>
+
+
+
+
+
+
+
+
+</section> 
+
+
+
+
+
+<script>
+            // JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const selectBox = document.querySelectorAll('.select-box');
+
+    selectBox.forEach(function(box) {
+        const textBox = box.querySelector('.from-select');
+        const searchContent = box.querySelector('.search-content');
+
+        textBox.addEventListener('click', function() {
+            searchContent.classList.toggle('active');
+        });
+
+        const options = searchContent.querySelectorAll('.option li');
+
+        options.forEach(function(option) {
+            option.addEventListener('click', function() {
+                textBox.value = option.querySelector('.font14').innerText;
+                searchContent.classList.remove('active');
+            });
+        });
+    });
+});
+
+
+
+const selectBox = document.querySelector(".select-box");
+const selectOption = document.querySelector(".select-option");
+const soValue = document.querySelector("#soValue");
+const optionSearch = document.querySelector("#optionSearch");
+const option = document.querySelector(".option");
+const optionLi = document.querySelectorAll(".option li");
+
+selectOption.addEventListener('click', function () {
+    selectBox.classList.toggle('active');
+});
+
+optionLi.forEach(function (optionLiSingle) {
+    optionLiSingle.addEventListener('click', function () {
+        const text = this.textContent;
+        soValue.value = text; // Assign the value to the 'value' property
+        selectBox.classList.remove('active');
+    });
+});
+
+optionSearch.addEventListener('keyup', function () {
+    var filter, li, i, textvalue;
+    filter = optionSearch.value.toUpperCase();
+    li = document.querySelectorAll('.option li'); // Use document.querySelectorAll() to select all <li> elements
+    for (i = 0; i < li.length; i++) {
+        textvalue = li[i].textContent || li[i].innerText; // Access textContent/innerText of each li
+        if (textvalue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = '';
+        } else {
+            li[i].style.display = 'none';
+        }
+    }
+});
+
+
+
+
+/*------------------------------to-------------------------------------------- */
+document.addEventListener('DOMContentLoaded', function() {
+    const selectBoxes = document.querySelectorAll('.select-box2');
+
+    selectBoxes.forEach(function(box) {
+        const textBox = box.querySelector('.to-select');
+        const searchContent = box.querySelector('.search-content2');
+
+        textBox.addEventListener('click', function() {
+            searchContent.classList.toggle('active');
+        });
+
+        const options = searchContent.querySelectorAll('.option2 li');
+
+        options.forEach(function(option) {
+            option.addEventListener('click', function() {
+                textBox.value = option.querySelector('.font14').innerText;
+                searchContent.classList.remove('active');
+            });
+        });
+    });
+});
+
+
+const selectBox2 = document.querySelector(".select-box2");
+const selectOption2 = document.querySelector(".select-option2");
+const soValue2 = document.querySelector("#toValue");
+const optionSearch2 = document.querySelector("#toOptionSearch");
+const option2 = document.querySelector(".option2");
+const optionLi2 = document.querySelectorAll(".option2 li");
+
+selectOption2.addEventListener('click', function () {
+    selectBox2.classList.toggle('active');
+});
+
+optionLi2.forEach(function (option2LiSingle) {
+    option2LiSingle.addEventListener('click', function () {
+        const text2 = this.textContent;
+        soValue2.value = text2; // Assign the value to the 'value' property
+        selectBox2.classList.remove('active');
+    });
+});
+
+optionSearch2.addEventListener('keyup', function () {
+    var filter2, li2, i2, textvalue2;
+    filter2 = optionSearch2.value.toUpperCase();
+    li2 = document.querySelectorAll('.option2 li'); // Use document.querySelectorAll() to select all <li> elements
+    for (i2 = 0; i2 < li2.length; i2++) {
+        textvalue2 = li2[i2].textContent || li2[i2].innerText; // Access textContent/innerText of each li
+        if (textvalue2.toUpperCase().indexOf(filter2) > -1) {
+            li2[i2].style.display = '';
+        } else {
+            li2[i2].style.display = 'none';
+        }
+    }
+});
+</script>
+
+<script src="script.js">
+
+</script>
+<?php include 'footer.php';?>
+</body>
+</html>
+
+
+
+
+
+
+  class='fliStopsDisc'
